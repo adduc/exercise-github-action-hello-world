@@ -15,4 +15,4 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Check PHP files for valid syntax
-        run: find -name '*.php' -exec php -l {} \;
+        run: find -name '*.php' -exec php -l {} \; | (! grep -v 'No syntax errors detected' )
