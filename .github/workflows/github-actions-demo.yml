@@ -5,11 +5,14 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      # Print PHP version
-      - run: php -v
+      - name: Print PHP version
+        run: php -v
 
-      # Print installed PHP modules
-      - run: php -m
+      - name: Print installed PHP modules
+        run: php -m
 
-      # Check PHP files for valid syntax
-      - run: find -name '*.php' -exec php -l {} \;
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Check PHP files for valid syntax
+        run: find -name '*.php' -exec php -l {} \;
